@@ -1,6 +1,8 @@
 #include <iostream>
+#include <assert.h>
 #include "Kmeans.h"
 #include "vector"
+#include "GMM.h"
 
 using namespace std;
 
@@ -52,7 +54,7 @@ int main()
     //}
 
     const int size =100; //Number of samples
-    const int dim = 6737;   //Dimension of feature
+    const int dim = 4;   //Dimension of feature
     const int cluster_num = 4; //Cluster number
 
     KMeans* kmeans = new KMeans(dim,cluster_num);
@@ -67,8 +69,39 @@ int main()
         cout << i << endl;
     }
 
+
+
+
+    // Test GMM
+
+
+
+    double test_data[4][3] = {
+            0, 0, 1,
+            0.4, 0.5, 0.6,
+            5.0, 6.2, 8.4,
+            10.3, 10.4, 10.5
+    };
+
+    GMM *gmm = new GMM(dim,4); //GMM has 3 SGM
+    gmm->Train(data2,size); //Training GMM
+
+    printf("\nTest GMM:\n");
+    for(int i = 0; i < 4; ++i)
+    {
+        printf("The Probability of %f, %f, %f  is %f \n",test_data[i][0],test_data[i][1],test_data[i][2],gmm->GetProbability(test_data[i]));
+    }
+
+    //save GMM to file
+    ofstream gmm_file("/Users/cbovigny/Downloads/gmm.txt");
+    assert(gmm_file);
+    gmm_file<<*gmm;
+    gmm_file.close();
+
+
     delete []labels;
     delete kmeans;
+    delete gmm;
 
     return 0;
 }
