@@ -1,0 +1,38 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/cbovigny/CLionProjects/Kmeans/KMeans.h
+fstream
+-
+
+/Users/cbovigny/CLionProjects/Kmeans/Kmeans.cpp
+stdlib.h
+-
+math.h
+-
+time.h
+-
+iostream
+-
+assert.h
+-
+KMeans.h
+/Users/cbovigny/CLionProjects/Kmeans/KMeans.h
+
+/Users/cbovigny/CLionProjects/Kmeans/Kmeans.h
+fstream
+-
+
+/Users/cbovigny/CLionProjects/Kmeans/main.cpp
+iostream
+-
+Kmeans.h
+/Users/cbovigny/CLionProjects/Kmeans/Kmeans.h
+vector
+/Users/cbovigny/CLionProjects/Kmeans/vector
+
